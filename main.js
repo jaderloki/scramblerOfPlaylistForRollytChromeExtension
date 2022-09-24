@@ -2,10 +2,16 @@ window.onload = function(){
 console.log("carregando");
     setTimeout(function(){
         console.log("carregou");
+        scrambleMain(2);
+    }, 2500);
+};
 
-        var elements = document.querySelectorAll('[d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"]');
+var aleatorio = null;
 
-         for (var b = 0; b < elements.length; b++) {
+function scrambleMain(howManyTimesMoreTimes = 1){
+    var elements = document.querySelectorAll('[d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"]');
+
+        for (var b = 0; b < elements.length; b++) {
             elements[b].setAttribute("jader", b);
         }
 
@@ -14,10 +20,13 @@ console.log("carregando");
         for (var i = 0; i < elements.length; i++) {
             scramble(i);
         }
-    }, 2500);
-};
 
-var aleatorio = null;
+    for(var times = 0; times < howManyTimesMoreTimes; times++){
+        setTimeout(function(){
+            scrambleMain();
+        }, 1000 * elements.length * (times + 1));
+    }
+}
 function scramble(i){
     setTimeout(function(){
         var elemento = document.querySelectorAll("[jader='"+i+"']")[0];
