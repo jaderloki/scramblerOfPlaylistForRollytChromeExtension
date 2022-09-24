@@ -12,7 +12,6 @@ console.log("carregando");
         elements = document.querySelectorAll("[jader]");
 
         for (var i = 0; i < elements.length; i++) {
-        //for (var i = 0; i < 2; i++) {
             scramble(i);
         }
     }, 2500);
@@ -25,8 +24,8 @@ function scramble(i){
         var afs = elemento.closest("button");
         afs.click();
         setTimeout(function(){
-            //var aleatorio = Math.floor(Math.random() * (4 - 3 + 1) + 3);
-            aleatorio = (aleatorio != null ? (aleatorio == 4 ? 3 : 4) : Math.floor(Math.random() * (4 - 3 + 1) + 3));
+            var aleatorio = Math.floor(Math.random() * (4 - 2 + 1) + 2);
+            //aleatorio = (aleatorio != null ? (aleatorio == 4 ? 3 : 4) : Math.floor(Math.random() * (4 - 3 + 1) + 3));
             //alert(aleatorio);
             if(aleatorio > 2){
                 elemento.closest(".bg-back-lightest").getElementsByClassName("shadow-popover")[0].getElementsByTagName("button")[aleatorio].click();
