@@ -1,11 +1,11 @@
 //use with tampermonkey
-window.onload = function(){
+//window.onload = function(){
 console.log("carregando");
     setTimeout(function(){
         console.log("carregou");
         scrambleMain();
     }, 2500);
-};
+//};
 
 var aleatorio = null;
 
